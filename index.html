@@ -1,0 +1,87 @@
+<!-- Mike Sizer 2016 -->
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<link rel="stylesheet" type="text/css" href="dataGlance.css">
+
+		<title>Data Glance</title>
+	</head>
+
+	<body>
+
+		<div id="container" >
+
+			<p class="title">Data Glance</p>
+			<img class="logo" src="watchlogo.png" />
+
+			<p class="intro">view your iPhone's data source and battery level from your Apple Watch</p>
+
+			<img class="previews" src="watchpreview1.png"/>
+
+			</br>
+
+			<img class="appstore" src="appstore.svg" />
+
+			</br>
+
+			<a href="https://docs.google.com/forms/d/1u04BMlZ1lFvWyNxO8GUlZsPUZB8zso1feWQ5D8XGBDI/viewform?usp=send_form">support</a>
+
+		</div>
+
+
+	</body>
+
+	<script>
+
+		(function(){
+
+			setInterval(function() {swapImage()}, 3000);
+
+			document.getElementsByClassName('appstore')[0].addEventListener('click', goToApp)
+
+			if( navigator.userAgent.match(/Android/i)
+				 || navigator.userAgent.match(/webOS/i)
+				 || navigator.userAgent.match(/iPhone/i)
+				 || navigator.userAgent.match(/iPod/i)
+				 || navigator.userAgent.match(/BlackBerry/i)
+				 || navigator.userAgent.match(/Windows Phone/i)
+				 ){
+
+					document.getElementById('container').className = 'mobile';
+
+				}
+		})();
+
+		function goToApp(){
+
+			window.location.href = 'https://appsto.re/gb/XA_u9.i';
+		}
+
+		function swapImage(){
+
+			var imgName = document.getElementsByClassName('previews')[0].src.replace(/^.*[\\\/]/, '');
+			var newImgName = ""
+
+			switch(imgName){
+				case "watchpreview1.png":
+					newImgName = "watchpreview2.png";
+					break;
+				case "watchpreview2.png":
+					newImgName = "watchpreview3.png";
+					break;
+				case "watchpreview3.png":
+					newImgName = "watchpreview1.png";
+					break;
+				default:
+					newImgName = "watchpreview1.png";
+					break;
+			}
+
+			document.getElementsByClassName('previews')[0].src = newImgName;
+		}
+
+	</script>
+
+</html>
